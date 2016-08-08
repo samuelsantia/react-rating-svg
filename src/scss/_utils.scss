@@ -1,0 +1,48 @@
+@function getColorIndex($color-index) {
+  $colors-len: length($rating-svg-active-colors);
+  $part: $rating-svg-total-symbols / $colors-len;
+
+  @return ceil(($color-index - 1) * $part);
+}
+
+@mixin ratingSVGSymbols(
+  $total-symbols: $rating-svg-total-symbols,
+  $active-colors: $rating-svg-active-colors,
+  $inactive-color: $rating-svg-inactive-color,
+  $hover-color-fn: lighten,
+  $hover-color-fn-amount: 7%
+) {
+
+  $_active-colors-len: length($rating-svg-active-colors);
+
+  color: $inactive-color;
+
+  @for $i from 1 through $_active-colors-len {
+    $index: (getColorIndex($i) * 2) + 1;
+
+    :nth-child(n+#{$index}):checked ~ & {
+      color: nth($active-colors, $i);
+    }
+  }
+
+  @for $i from 1 through $_active-colors-len {
+    $index: (getColorIndex($i) * 2) + 1;
+    $color: nth($active-colors, $i);
+    $hover-color: call($hover-color-fn, $color, $hover-color-fn-amount);
+
+    :nth-child(n+#{$index}):hover ~ &{
+      color: $color;
+    }
+
+    &:nth-child(n+#{$index + 1}):hover,
+    &:nth-child(n+#{$index + 1}):hover ~ label,
+    :nth-child(n+#{$index}):focus ~ &{
+      filter: drop-shadow(0 0 2px $hover-color);
+    }
+
+    &:nth-child(n+#{$index + 1}):hover,
+    &:nth-child(n+#{$index + 1}):hover ~ label{
+      color: $hover-color;
+    }
+  }
+}

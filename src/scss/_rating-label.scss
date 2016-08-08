@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'utils';
+
+.r-rating-label{
+  @include ratingSVGSymbols;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.r-rating-label-svg{
+  fill: currentColor;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+}

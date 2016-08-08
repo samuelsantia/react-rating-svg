@@ -1,0 +1,10 @@
+.r-rating-svg{
+  direction: rtl;
+  display: inline-block;
+
+  [type=radio] {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+  }
+}
