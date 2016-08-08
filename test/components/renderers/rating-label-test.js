@@ -39,9 +39,10 @@ describe('RatingLabel Component', () => {
     requiredProps.forEach(prop => {
 
       it(`should console error with null '${prop}'`, () => {
-        const props = Object.assign({}, validProps, {
+        const props = {
+          ...validProps,
           [prop]: null
-        });
+        };
 
         shallow(<RatingLabel {...props} />);
         expect(spy).toHaveBeenCalled();
@@ -51,9 +52,10 @@ describe('RatingLabel Component', () => {
     Object.keys(invalidProps).forEach( prop => {
 
       it(`should console error with invalid '${prop}' value`, () => {
-        const props = Object.assign({}, validProps, {
+        const props = {
+          ...validProps,
           [prop]: invalidProps[prop]
-        });
+        };
 
         shallow(<RatingLabel {...props} />);
         expect(spy).toHaveBeenCalled();

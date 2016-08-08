@@ -33,9 +33,10 @@ describe('RatingRadio Component', () => {
     requiredProps.forEach(prop => {
 
       it(`should console error with null '${prop}'`, () => {
-        const props = Object.assign({}, validProps, {
+        const props = {
+          ...validProps,
           [prop]: null
-        });
+        };
         delete props[prop];
 
         shallow(<RatingRadio {...props} />);
@@ -46,9 +47,10 @@ describe('RatingRadio Component', () => {
     Object.keys(invalidProps).forEach( prop => {
 
       it(`should console error with invalid '${prop}' value`, () => {
-        const props = Object.assign({}, validProps, {
+        const props = {
+          ...validProps,
           [prop]: invalidProps[prop]
-        });
+        };
 
         shallow(<RatingRadio {...props} />);
         expect(spy).toHaveBeenCalled();
@@ -97,7 +99,7 @@ describe('RatingRadio Component', () => {
     });
 
     it(`should get id from prop if is defined`, () => {
-      const wrapper = shallow(<RatingRadio {...Object.assign({ id: 'test' }, validProps)} />);
+      const wrapper = shallow(<RatingRadio {...{ id: 'test', ...validProps }} />);
       const props = wrapper.props;
 
       expect(wrapper.prop('id')).toBe('test');

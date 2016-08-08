@@ -37,9 +37,10 @@ describe('RatingSVG Component', () => {
     requiredProps.forEach(prop => {
 
       it(`should console error with null ${prop}`, () => {
-        const props = Object.assign({}, validProps, {
+        const props = {
+          ...validProps,
           [prop]: null
-        });
+        };
 
         shallow(<RatingSVG {...props} />);
         expect(spy).toHaveBeenCalled();
@@ -49,9 +50,10 @@ describe('RatingSVG Component', () => {
     Object.keys(invalidProps).forEach( prop => {
 
       it(`should console error with invalid ${prop}`, () => {
-        const props = Object.assign({}, validProps, {
+        const props = {
+          ...validProps,
           [prop]: invalidProps[prop]
-        });
+        };
 
         shallow(<RatingSVG {...props} />);
         expect(spy).toHaveBeenCalled();
@@ -71,7 +73,7 @@ describe('RatingSVG Component', () => {
     Object.keys(defaultProps).forEach( prop => {
 
       it(`should have defaultProp '${prop}' with value ${defaultProps[prop]}`, () => {
-        const props = Object.assign({}, validProps);
+        const props = { ...validProps };
         delete props[prop];
         const instance = shallow(<RatingSVG {...props} />).instance();
 
