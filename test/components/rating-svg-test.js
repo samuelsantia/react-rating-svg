@@ -365,7 +365,7 @@ describe('RatingSVG Component', () => {
 
       instance.triggerChange(5);
       expect(spy).toHaveBeenCalled();
-      expect(spy).toHaveBeenCalledWith(5);
+      expect(spy).toHaveBeenCalledWith(5, validProps.name);
 
       spy.restore();
     });

@@ -66,10 +66,10 @@ class RatingSvg extends React.Component {
   }
 
   triggerChange(value) {
-    const { onChange } = this.props;
+    const { name, onChange } = this.props;
 
     if ( typeof onChange === 'function' ) {
-      onChange(value);
+      onChange(value, name);
     }
   }
 
