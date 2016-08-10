@@ -36,4 +36,4 @@ plugins:
 
     'Publishing at NPM':
       plugin: 'bumped-terminal'
-      command: npm publish
+      command: 'npm publish'
