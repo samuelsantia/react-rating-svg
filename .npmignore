@@ -57,4 +57,4 @@ karma.webpack.js
 webpack.config.*
 test
 src
-scripts
+babel-scripts
