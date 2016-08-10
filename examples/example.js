@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import RatingSvg from '../src';
 
-require('./example.scss');
+import './example.scss';
 
 const Example = _ => (<RatingSvg name='example' />);
 

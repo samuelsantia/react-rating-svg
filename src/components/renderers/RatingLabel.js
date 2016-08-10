@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import propsValidations from '../../utils/props-validations';
 
-require('../../scss/_rating-label.scss');
+import '../../scss/_rating-label.scss';
 
 function RatingLabel(props) {
   const SvgSymbol = props.svgSymbol;

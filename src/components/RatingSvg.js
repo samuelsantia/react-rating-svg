@@ -7,7 +7,7 @@ import RatingRadio from './renderers/RatingRadio';
 import RatingLabel from './renderers/RatingLabel';
 import SVGStar from './svg/SVGStar';
 
-require('../scss/_rating-svg.scss');
+import '../scss/_rating-svg.scss';
 
 function isControlled(props) {
   return props.value !== undefined;

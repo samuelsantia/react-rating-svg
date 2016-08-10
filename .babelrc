@@ -12,6 +12,9 @@
       "presets": [
         "react-hmre"
       ]
+    },
+    "production": {
+      "plugins": [ "./babel-scripts/remove-scss-imports.js" ]
     }
   }
 }

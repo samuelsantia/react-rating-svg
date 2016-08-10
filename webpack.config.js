@@ -21,7 +21,7 @@ const common = {
   },
   output: {
     path: PATHS.examples + '/build',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
@@ -54,7 +54,10 @@ if ( TARGET === 'start' ) {
       'webpack/hot/dev-server',
       PATHS.examples + '/example.js'
     ],
-    devtool: 'inline-source-map',
+    output: {
+      sourceMapFilename: "[name].map",
+    },
+    devtool: 'source-map',
     devServer: {
       contentBase: PATHS.examples,
       historyApiFallback: true,
@@ -88,18 +91,21 @@ if ( TARGET === 'start' ) {
 }
 
 if ( TARGET === 'build:examples' ) {
-  const extractScss = new ExtractTextPlugin(PATHS.examples + '/build/stylesheets/style.css', {
+  const extractScss = new ExtractTextPlugin('style.css', {
     allChunks: true
   });
 
   module.exports = merge(common, {
     entry: PATHS.examples + '/example.js',
+    devtool: 'inline-source-map',
     module: {
       loaders: [
         {
           test: /\.scss$/,
-          loader: extractScss.extract(['css?sourceMap', 'postcss', 'sass?sourceMap']),
-          include: [PATHS.src, PATHS.examples],
+          loader: extractScss.extract('style',
+            'css?sourceMap!postcss!sass?sourceMap'
+          ),
+          include: [PATHS.source, PATHS.examples],
           exclude: /node_modules/
         }
       ]

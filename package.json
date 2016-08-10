@@ -1,33 +1,28 @@
 {
   "name": "react-rating-svg",
-  "version": "0.0.0",
   "description": "React rating component with svg icons",
-  "main": "index.js",
-  "jsnext:main": "src/index.js",
-  "scripts": {
-    "react:clean": "rimraf node_modules/react node_modules/react-dom node_modules/react-addons-test-utils node_modules/react-addons-shallow-compare",
-    "react:14": "npm run react:clean && npm i react@0.14 react-dom@0.14 react-addons-test-utils@0.14 react-addons-shallow-compare@0.14",
-    "react:15": "npm run react:clean && npm i react@15 react-dom@15 react-addons-test-utils@15 react-addons-shallow-compare@15",
-    "test:react:14": "npm run react:14 && npm run test:suite",
-    "test:react:15": "npm run react:15 && npm run test:suite",
-    "test:watch": "karma start --singleRun=false --autoWatch=true",
-    "test:suite": "karma start",
-    "test": "npm run test:react:14 && npm run test:react:15",
-    "start": "npm run clean && webpack-dev-server",
-    "build:examples": "npm run clean && webpack",
-    "clean": "rimraf examples/build",
-    "codecov": "cat coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js"
+  "version": "0.0.0",
+  "main": "./lib",
+  "author": {
+    "name": "Samuel Santiago",
+    "email": "samuelsantia@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelsantia/react-rating-svg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samuelsantia/react-rating-svg/issues"
   },
   "keywords": [
+    "rating",
     "react",
     "react-component",
-    "rating",
     "svg"
   ],
-  "author": "Samuel Santiago <samuelsantia@gmail.com>",
-  "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.3.7",
+    "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
@@ -36,6 +31,8 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "codecov.io": "^0.1.6",
+    "cpx": "^1.3.2",
+    "cross-env": "^2.0.0",
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
     "eslint": "^3.2.2",
@@ -43,6 +40,7 @@
     "eslint-plugin-react": "^6.0.0",
     "expect": "^1.20.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "git-dirty": "^1.0.2",
     "html-webpack-plugin": "^2.22.0",
     "isparta-loader": "^2.0.0",
     "json-loader": "^0.5.4",
@@ -69,9 +67,33 @@
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.14.1"
   },
+  "scripts": {
+    "babel": "cross-env NODE_ENV=production babel ./src --out-dir ./lib",
+    "build": "npm run babel && npm run sass",
+    "build:examples": "npm run clean:examples && webpack",
+    "clean": "rimraf ./lib",
+    "clean:examples": "rimraf examples/build",
+    "codecov": "cat coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js",
+    "prebuild": "npm run clean",
+    "prebuild:examples": "npm run clean:examples",
+    "prepublish": "npm run build",
+    "react:14": "npm run react:clean && npm i react@0.14 react-dom@0.14 react-addons-test-utils@0.14 react-addons-shallow-compare@0.14",
+    "react:15": "npm run react:clean && npm i react@15 react-dom@15 react-addons-test-utils@15 react-addons-shallow-compare@15",
+    "react:clean": "rimraf node_modules/react node_modules/react-dom node_modules/react-addons-test-utils node_modules/react-addons-shallow-compare",
+    "release": "bumped release",
+    "sass": "cpx './src/**/*.scss' './lib'",
+    "start": "npm run clean:examples && webpack-dev-server",
+    "test": "npm run test:react:14 && npm run test:react:15",
+    "test:react:14": "npm run react:14 && npm run test:suite",
+    "test:react:15": "npm run react:15 && npm run test:suite",
+    "test:suite": "karma start",
+    "test:watch": "karma start --singleRun=false --autoWatch=true"
+  },
+  "license": "ISC",
   "peerDependencies": {
     "react": "^0.14 || ^15.0",
-    "react-dom": "^0.14 || ^15.0",
-    "react-addons-shallow-compare": "^0.14 || ^15.0"
-  }
+    "react-addons-shallow-compare": "^0.14 || ^15.0",
+    "react-dom": "^0.14 || ^15.0"
+  },
+  "homepage": "https://github.com/samuelsantia/react-rating-svg#readme"
 }

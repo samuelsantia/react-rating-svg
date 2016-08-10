@@ -41,7 +41,6 @@ build/Release
 
 # Dependency directories
 node_modules
-jspm_packages
 
 # Optional npm cache directory
 .npm
@@ -50,4 +49,12 @@ jspm_packages
 .node_repl_history
 
 # My
-lib
+.babelrc
+.travis.yml
+examples
+karma.conf.js
+karma.webpack.js
+webpack.config.*
+test
+src
+scripts
