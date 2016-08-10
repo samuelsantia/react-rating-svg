@@ -1,3 +1,11 @@
+<a name="0.0.1-alpha.1"></a>
+## 0.0.1-alpha.1 (2016-08-10)
+
+* fix(config): remove babel-scripts from npm ([5ed1c5e](https://github.com/samuelsantia/react-rating-svg/commit/5ed1c5e))
+* fix(feat): now we pass name as second argument onChange handler ([cef04ec](https://github.com/samuelsantia/react-rating-svg/commit/cef04ec))
+
+
+
 <a name="0.0.1-alpha.0"></a>
 ## 0.0.1-alpha.0 (2016-08-10)
 

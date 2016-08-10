@@ -2,7 +2,7 @@
   "name": "react-rating-svg",
   "description": "React rating component with svg icons",
   "homepage": "https://github.com/samuelsantia/react-rating-svg#readme",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "main": "./lib",
   "author": {
     "name": "Samuel Santiago",
