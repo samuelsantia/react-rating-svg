@@ -130,7 +130,7 @@ describe('RatingSVG Component', () => {
 
       result.forEach((items, i) => {
         const [ radio, label ] = items;
-        const value = i + 1;
+        const value = validProps.totalSymbols - i;
 
         expect(mount(radio).type()).toBe(RatingRadio);
         expect(radio.key).toBe(`radio-${value}`);
@@ -160,7 +160,7 @@ describe('RatingSVG Component', () => {
         result.forEach((items, i) => {
           const [ radio ] = items;
 
-          expect(radio.props.checked).toBe( i + 1 === 3);
+          expect(radio.props.checked).toBe( validProps.totalSymbols - i === 3);
         });
       });
 
@@ -169,7 +169,7 @@ describe('RatingSVG Component', () => {
         const result = wrapper.instance().getRatingsSymbols();
         result.forEach((items, i) => {
           const [ radio ] = items;
-          expect(radio.props.checked).toBe( i + 1 === 5);
+          expect(radio.props.checked).toBe( validProps.totalSymbols - i === 5);
         });
       });
     });
@@ -186,7 +186,7 @@ describe('RatingSVG Component', () => {
         const result = wrapper.instance().getRatingsSymbols();
         result.forEach((items, i) => {
           const [ radio ] = items;
-          expect(radio.props.checked).toBe( i + 1 === 3);
+          expect(radio.props.checked).toBe( validProps.totalSymbols - i === 3);
         });
       });
 
@@ -196,7 +196,7 @@ describe('RatingSVG Component', () => {
         const result = wrapper.instance().getRatingsSymbols();
         result.forEach((items, i) => {
           const [ radio ] = items;
-          expect(radio.props.checked).toBe( i + 1 === 5);
+          expect(radio.props.checked).toBe( validProps.totalSymbols - i === 5);
         });
       });
     });

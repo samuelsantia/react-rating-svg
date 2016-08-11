@@ -92,7 +92,7 @@ class RatingSvg extends React.Component {
     const wrapperValue = this.getValue();
 
     return iterators.mapTimes(totalSymbols, i => {
-      const value = i + 1;
+      const value = totalSymbols - i;
 
       return [
         <RatingRadio
