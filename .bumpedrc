@@ -21,6 +21,8 @@ plugins:
   postrelease:
     'Generating CHANGELOG file':
       plugin: 'bumped-changelog'
+      options:
+        preset: 'angular'
 
     'Commiting new version':
       plugin: 'bumped-terminal'
