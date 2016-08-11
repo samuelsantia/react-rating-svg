@@ -1,3 +1,18 @@
+<a name="0.0.1-alpha.2"></a>
+## [0.0.1-alpha.2](https://github.com/samuelsantia/react-rating-svg/compare/0.0.1-alpha.1...v0.0.1-alpha.2) (2016-08-11)
+
+
+### Bug Fixes
+
+* **ratings:** now ratingRadios have the correct value, before are reveresed ([b1e54b4](https://github.com/samuelsantia/react-rating-svg/commit/b1e54b4))
+
+
+### Features
+
+* **scss:** added react-rating-svg scss entry point to import in others projects ([77727b7](https://github.com/samuelsantia/react-rating-svg/commit/77727b7))
+
+
+
 <a name="0.0.1-alpha.1"></a>
 ## 0.0.1-alpha.1 (2016-08-10)
 
