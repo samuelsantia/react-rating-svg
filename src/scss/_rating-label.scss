@@ -6,6 +6,10 @@
   position: relative;
   cursor: pointer;
   display: inline-block;
+
+  input:disabled ~ & {
+    cursor: not-allowed;
+  }
 }
 
 .r-rating-label-svg{

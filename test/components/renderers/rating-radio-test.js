@@ -19,7 +19,8 @@ describe('RatingRadio Component', () => {
       name: 1,
       value: '1',
       checked: 'true',
-      onChange: 'function'
+      onChange: 'function',
+      disabled: 'true'
     };
     let spy;
 
@@ -124,7 +125,7 @@ describe('RatingRadio Component', () => {
     it('should call this props onChange when radio change', () => {
       wrapper.simulate('change');
       expect(spy).toHaveBeenCalled();
-    })
+    });
   });
 });
 

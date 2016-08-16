@@ -25,7 +25,9 @@ describe('RatingSVG Component', () => {
       defaultValue: '1',
       onChange: 'func',
       svgSymbol: 'SVGStar',
-      svgAttrs: '{}'
+      svgAttrs: '{}',
+      disabled: 'true',
+      readOnly: 'true'
     };
     let spy;
 
@@ -167,6 +169,61 @@ describe('RatingSVG Component', () => {
         expect(label.props.svgSymbol).toBe(validProps.svgSymbol);
         expect(label.props.svgAttrs).toEqual(instance.props.svgAttrs);
       });
+    });
+
+    it('should disable radios when prop disabled is true', () => {
+      wrapper.setProps({ disabled: true });
+
+      const radios = wrapper.find('RatingRadio');
+
+      radios.forEach((radio) => {
+        expect(radio.prop('disabled')).toBe(true);
+      });
+    });
+
+    it('should disable radios when prop readOnly is true', () => {
+      wrapper.setProps({ readOnly: true });
+
+      const radios = wrapper.find('RatingRadio');
+
+      radios.forEach((radio) => {
+        expect(radio.prop('disabled')).toBe(true);
+      });
+    });
+
+    it('should no render input hidden with readOnly and no value setted', () => {
+      wrapper.setProps({ readOnly: true });
+      const hidden = wrapper.find('input[type="hidden"]');
+
+      expect(hidden.length).toBe(0);
+    });
+
+    it('should render input hidden with field value when is readOnly', () => {
+      const wrapper = shallow(
+        <RatingSVG
+          {...validProps}
+          readOnly
+          value={3}
+        />
+      );
+      const hidden = wrapper.find('input[type="hidden"]');
+
+      expect(hidden.length).toBe(1);
+      expect(hidden.prop('value')).toBe(3);
+    });
+
+    it('should render input hidden with field defaultValue when is readOnly', () => {
+      const wrapper = shallow(
+        <RatingSVG
+          {...validProps}
+          readOnly
+          defaultValue={3}
+        />
+      );
+      const hidden = wrapper.find('input[type="hidden"]');
+
+      expect(hidden.length).toBe(1);
+      expect(hidden.prop('value')).toBe(3);
     });
 
     describe('uncontrolled component', () => {

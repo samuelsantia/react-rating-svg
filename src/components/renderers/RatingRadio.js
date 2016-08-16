@@ -5,12 +5,9 @@ function RatingRadio(props) {
 
   return (
     <input
+      {...props}
       type='radio'
       id={id}
-      name={props.name}
-      value={props.value}
-      checked={props.checked}
-      onChange={props.onChange}
     />
   );
 }
@@ -20,7 +17,8 @@ RatingRadio.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   id: PropTypes.string,
-  checked: PropTypes.bool
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export default RatingRadio;

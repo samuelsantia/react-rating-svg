@@ -30,19 +30,13 @@
     $color: nth($active-colors, $i);
     $hover-color: call($hover-color-fn, $color, $hover-color-fn-amount);
 
-    :nth-child(n+#{$index}):hover ~ &{
-      color: $color;
-    }
-
-    &:nth-child(n+#{$index + 1}):hover,
-    &:nth-child(n+#{$index + 1}):hover ~ label,
-    :nth-child(n+#{$index}):focus ~ &{
-      filter: drop-shadow(0 0 2px $hover-color);
-    }
-
-    &:nth-child(n+#{$index + 1}):hover,
-    &:nth-child(n+#{$index + 1}):hover ~ label{
+    input:nth-child(n+#{$index}):not(:disabled):hover ~ &{
       color: $hover-color;
+    }
+
+    input:nth-child(n+#{$index}):not(:disabled):hover ~ &,
+    input:nth-child(n+#{$index}):not(:disabled):focus ~ &{
+      filter: drop-shadow(0 0 2px $hover-color);
     }
   }
 }

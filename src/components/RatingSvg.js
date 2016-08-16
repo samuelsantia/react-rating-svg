@@ -102,7 +102,14 @@ class RatingSvg extends React.Component {
   }
 
   getRatingsSymbols() {
-    const { totalSymbols, name, svgSymbol, svgAttrs } = this.props;
+    const {
+      totalSymbols,
+      name,
+      disabled,
+      readOnly,
+      svgSymbol,
+      svgAttrs
+    } = this.props;
     const wrapperValue = this.getValue();
 
     return iterators.mapTimes(totalSymbols, i => {
@@ -115,6 +122,7 @@ class RatingSvg extends React.Component {
           name={name}
           onChange={this.handleChange}
           checked={value === wrapperValue}
+          disabled={disabled || readOnly}
         />,
         <RatingLabel
           key={`label-${value}`}
@@ -126,6 +134,14 @@ class RatingSvg extends React.Component {
     });
   }
 
+  getReadOnlyField() {
+    const { readOnly } = this.props;
+
+    if ( readOnly && this.getValue() ) {
+      return <input type='hidden' value={this.getValue()} />;
+    }
+  }
+
   render() {
     return (
       <fieldset className={this.getClassName()}>
@@ -133,6 +149,7 @@ class RatingSvg extends React.Component {
         <div className='r-rating-svg-items'>
           {this.getRatingsSymbols()}
         </div>
+        {this.getReadOnlyField()}
       </fieldset>
     );
   }
@@ -150,7 +167,9 @@ RatingSvg.propTypes = {
   className: PropTypes.string,
   svgAttrs: PropTypes.object,
   defaultValue: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool,
+  readOnly: PropTypes.bool
 };
 
 RatingSvg.defaultProps = {
