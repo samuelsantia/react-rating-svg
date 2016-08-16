@@ -19,6 +19,7 @@ describe('RatingSVG Component', () => {
     const invalidProps  = {
       caption: 1,
       name: 1,
+      className: 1,
       totalSymbols: '1',
       value: '1',
       defaultValue: '1',
@@ -98,6 +99,13 @@ describe('RatingSVG Component', () => {
     it('should render fieldset with `r-rating-svg` class', () => {
       expect(wrapper.type()).toBe('fieldset');
       expect(wrapper.hasClass('r-rating-svg')).toBe(true);
+    });
+
+    it('should have defined className', () => {
+      wrapper.setProps({ className: 'custom-class' });
+
+      expect(wrapper.hasClass('r-rating-svg')).toBe(true);
+      expect(wrapper.hasClass('custom-class')).toBe(true);
     });
   });
 
@@ -213,6 +221,22 @@ describe('RatingSVG Component', () => {
           expect(radio.props.checked).toBe( validProps.totalSymbols - i === 5);
         });
       });
+    });
+  });
+
+  describe('#getClassName method', () => {
+    let wrapper, instance;
+
+    before(() => {
+      wrapper = shallow(<RatingSVG {...validProps} />);
+      instance = wrapper.instance();
+    });
+
+    it ('should return the correct className', () => {
+
+      expect(instance.getClassName()).toBe('r-rating-svg');
+      wrapper.setProps({ className: 'custom-class' });
+      expect(instance.getClassName()).toBe('r-rating-svg custom-class');
     });
   });
 
