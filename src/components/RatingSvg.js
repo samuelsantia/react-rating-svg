@@ -87,6 +87,14 @@ class RatingSvg extends React.Component {
     }
   }
 
+  getCaption() {
+    const { caption } = this.props;
+
+    if ( caption ) {
+      return <legend className='r-rating-svg-caption'>{caption}</legend>;
+    }
+  }
+
   getRatingsSymbols() {
     const { totalSymbols, name, svgSymbol, svgAttrs } = this.props;
     const wrapperValue = this.getValue();
@@ -115,7 +123,10 @@ class RatingSvg extends React.Component {
   render() {
     return (
       <fieldset className='r-rating-svg'>
-        {this.getRatingsSymbols()}
+        {this.getCaption()}
+        <div className='r-rating-svg-items'>
+          {this.getRatingsSymbols()}
+        </div>
       </fieldset>
     );
   }
@@ -128,6 +139,7 @@ RatingSvg.propTypes = {
     propsValidations.ReactClass,
     PropTypes.func
   ]).isRequired,
+  caption: PropTypes.string,
   svgAttrs: PropTypes.object,
   value: PropTypes.number,
   defaultValue: PropTypes.number,

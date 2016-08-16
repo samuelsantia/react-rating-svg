@@ -5,6 +5,11 @@ import RatingSvg from '../src';
 
 import './example.scss';
 
-const Example = _ => (<RatingSvg name='example' />);
+const Example = _ => (
+  <RatingSvg
+    name='example'
+    caption='Basic example'
+  />
+);
 
 render(<Example />, document.getElementById('container'));

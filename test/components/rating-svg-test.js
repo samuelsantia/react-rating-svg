@@ -17,6 +17,7 @@ describe('RatingSVG Component', () => {
   describe('props validations', () => {
     const requiredProps = ['totalSymbols', 'name', 'svgSymbol'];
     const invalidProps  = {
+      caption: 1,
       name: 1,
       totalSymbols: '1',
       value: '1',
@@ -105,6 +106,19 @@ describe('RatingSVG Component', () => {
 
     beforeEach(() => {
       wrapper = mount(<RatingSVG {...validProps} />);
+    });
+
+    it('should not render legend fieldset when no caption is defined as prop', () => {
+      expect(wrapper.find('legend').length).toBe(0);
+    });
+
+    it('should render caption in legend tag', () => {
+      wrapper.setProps({ caption: 'Test caption:' });
+      const legend = wrapper.find('legend');
+
+      expect(legend.length).toBe(1);
+      expect(legend.text()).toBe('Test caption:');
+      expect(legend.hasClass('r-rating-svg-caption')).toBe(true);
     });
 
     it('should render totalSymbols RatingRadio and RatinLabel components', () => {

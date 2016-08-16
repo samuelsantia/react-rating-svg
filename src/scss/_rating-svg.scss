@@ -1,5 +1,4 @@
 .r-rating-svg{
-  direction: rtl;
   display: inline-block;
 
   [type=radio] {
@@ -7,4 +6,9 @@
     top: -9999em;
     left: -9999em;
   }
+}
+
+.r-rating-svg-items{
+  position: relative;
+  direction: rtl;
 }
