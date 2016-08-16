@@ -1,3 +1,20 @@
+<a name="0.0.1"></a>
+## [0.0.1](https://github.com/samuelsantia/react-rating-svg/compare/0.0.1-alpha.2...v0.0.1) (2016-08-16)
+
+
+### Bug Fixes
+
+* **style:** prevent scroll jump on focus radios ([2387101](https://github.com/samuelsantia/react-rating-svg/commit/2387101))
+
+
+### Features
+
+* **accesibility:** added caption prop that renders legend in fieldset ([4ca1305](https://github.com/samuelsantia/react-rating-svg/commit/4ca1305))
+* **chore:** added readOnly and disable support ([884b215](https://github.com/samuelsantia/react-rating-svg/commit/884b215))
+* **customize:** added className prop to add custom css classes ([22a5658](https://github.com/samuelsantia/react-rating-svg/commit/22a5658))
+
+
+
 <a name="0.0.1-alpha.2"></a>
 ## [0.0.1-alpha.2](https://github.com/samuelsantia/react-rating-svg/compare/0.0.1-alpha.1...v0.0.1-alpha.2) (2016-08-11)
 
