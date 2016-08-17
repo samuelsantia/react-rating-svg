@@ -1,5 +1,8 @@
-[![Build Status](https://travis-ci.org/samuelsantia/react-rating-svg.svg?branch=master)](https://travis-ci.org/samuelsantia/react-rating-svg)
-[![codecov](https://codecov.io/gh/samuelsantia/react-rating-svg/branch/master/graph/badge.svg)](https://codecov.io/gh/samuelsantia/react-rating-svg)
+[![version](https://img.shields.io/npm/v/react-rating-svg.svg?maxAge=2592000&style=flat-square)](https://www.npmjs.com/package/react-rating-svg)
+[![Build status](https://img.shields.io/travis/samuelsantia/react-rating-svg.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/samuelsantia/react-rating-svg)
+[![Coverage](https://img.shields.io/codecov/c/github/samuelsantia/react-rating-svg/master.svg?maxAge=2592000&style=flat-square)](https://codecov.io/gh/samuelsantia/react-rating-svg)
+[![dependencies](https://img.shields.io/david/samuelsantia/react-rating-svg.svg?maxAge=2592000&style=flat-square)](https://david-dm.org/samuelsantia/react-rating-svg?view=list)
+[![peerDependencies](https://img.shields.io/david/peer/samuelsantia/react-rating-svg.svg?maxAge=2592000&style=flat-square)](https://david-dm.org/samuelsantia/react-rating-svg?type=peer&view=list)
 
 # React Rating SVG
 
